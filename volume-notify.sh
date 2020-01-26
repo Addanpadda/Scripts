@@ -1,0 +1,10 @@
+#!/bin/bash
+vol=$(/home/adam/Scripts/get-volume.sh)
+
+killall dunst
+if [ $vol == MUTED ]
+then
+	notify-send "Volume" "$vol ($(pacmd list-sinks | grep "*" -A 11 | grep volume | awk 'NR == 1 {print $5}'))"
+else
+	notify-send "Volume" "$vol"
+fi
