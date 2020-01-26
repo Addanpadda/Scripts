@@ -1,5 +1,5 @@
 #!/bin/bash
-vol=$(/home/adam/Scripts/get-volume.sh)
+vol=$(/home/adam/Scripts/volume-get.sh)
 
 killall dunst
 if [ $vol == MUTED ]

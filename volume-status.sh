@@ -1,5 +1,5 @@
 #!/bin/bash
-vol=$(/home/adam/Scripts/get-volume.sh)
+vol=$(/home/adam/Scripts/volume-get.sh)
 
 if [ "$vol" == "MUTED" ]
 then
@@ -10,6 +10,6 @@ fi
 
 if [ ! "$vol" ]
 then
-	sleep 1
+	sleep 0.1
 	pkill -RTMIN+10 i3blocks &
 fi

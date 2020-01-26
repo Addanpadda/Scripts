@@ -1,5 +1,5 @@
 #!/bin/bash
-if pactl set-sink-volume $(pacmd list-sinks | grep "*" | awk '{print $3}') -2%
+if pactl set-sink-volume $(pacmd list-sinks | grep "*" | awk '{print $3}') -5%
 then
 	/home/adam/Scripts/volume-notify.sh
 else
