@@ -1,2 +1,9 @@
 #!/bin/bash
-pactl set-sink-mute $(pacmd list-sinks | grep "*" | awk '{print $3}') toggle && killall status-bar.sh && /home/adam/Scripts/status-bar.sh &
+if pactl set-sink-mute $(pacmd list-sinks | grep "*" | awk '{print $3}') toggle 
+then
+	/home/adam/Scripts1/volume-notify.sh
+	# Dwm
+	#killall status-bar.sh && /home/adam/Scripts/status-bar.sh &
+else
+	notify-send "Mute" "Error when muting"
+fi

@@ -8,3 +8,4 @@ then
 else
 	notify-send "Volume" "$vol"
 fi
+pkill -RTMIN+10 i3blocks
