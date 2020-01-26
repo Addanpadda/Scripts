@@ -1,2 +1,2 @@
 #!/bin/bash
-/home/adam/Scripts/hacking.sh && zsh
+/home/adam/Scripts/location-status.sh && zsh
