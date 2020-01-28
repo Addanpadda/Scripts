@@ -1,5 +1,4 @@
 #!/bin/bash
-change_to_sink $1
 
 change_to_sink(){
 	pacmd set-default-sink $1
@@ -9,3 +8,5 @@ change_to_sink(){
 		pacmd move-sink-input $source $1 > /dev/null 2>&1
 	done
 }
+
+change_to_sink $1
