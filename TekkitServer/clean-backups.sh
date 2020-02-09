@@ -6,13 +6,13 @@ LOG="/home/adam/Tekkit/clean.log"
 removeBackupSecAgoHour00() {
 	secAgo=$1
 	backupName=$(date --date="@$(($(date +%s)-$secAgo))" +%Y-%m-%d_%H:00)
-	rm -r $BACKUPDIR/$backupName >> $LOG 2>&1 && echo "Successfully deleted backup: $backupName : MONTLY" >> $LOG
+	rm -r $BACKUPDIR/$backupName >> $LOG 2>&1 && echo "Successfully deleted backup: $backupName" >> $LOG
 }
 
 removeBackupSecAgoHour30() {
 	secAgo=$1
 	backupName=$(date --date="@$(($(date +%s)-$secAgo))" +%Y-%m-%d_%H:30)
-	rm -r $BACKUPDIR/$backupName >> $LOG 2>&1 && echo "Successfully deleted backup: $backupName : WEEKLY" >> $LOG
+	rm -r $BACKUPDIR/$backupName >> $LOG 2>&1 && echo "Successfully deleted backup: $backupName" >> $LOG
 }
 
 removeBackupsInSecRangeHour00() {
@@ -59,11 +59,13 @@ monthsToSeconds() {
 }
 
 cleanUpWeekBackups() {
-	removeBackupsInSecRangeHour30 $(weeksToSeconds 1) $(($(weeksToSeconds 1) - $(daysToSeconds 1)))
+	echo "Removing weekly backups!" >> $LOG
+	removeBackupsInSecRangeHour30 $(weeksToSeconds 1) $(($(weeksToSeconds 1) + $(daysToSeconds 1)))
 }
 
 cleanUpMonthBackups() {
-	removeBackupsInSecRangeHour00 $(monthsToSeconds) $(($(monthsToSeconds 1) - $(daysToSeconds 1)))
+	echo "Removing monthly backups!" >> $LOG
+	removeBackupsInSecRangeHour00 $(monthsToSeconds 1) $(($(monthsToSeconds 1) + $(daysToSeconds 1)))
 }
 
 startLog() {

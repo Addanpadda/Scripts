@@ -1,2 +1,2 @@
 #!/bin/bash
-screen -dm bash -c "cd /home/adam/Tekkit/Server && ./launch.sh"
+screen -S TekkitServer -dm bash -c "cd /home/adam/Tekkit/Server && ./launch.sh"
