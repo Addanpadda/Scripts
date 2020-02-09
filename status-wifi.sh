@@ -9,4 +9,7 @@ then
 	fi
 fi
 
-echo -e "No wifi\n\n#ff0000"
+echo -e "NO WIFI\n\n#ff0000"
+# Refresh script faster
+sleep 0.5
+pkill -RTMIN+10 i3blocks
