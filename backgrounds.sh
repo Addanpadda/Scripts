@@ -6,7 +6,7 @@ fi
 
 while :
 do
-	for image in $(find /home/adam/Pictures/Backgrounds -name *.jpg)
+	for image in $(find /home/adam/Pictures/Backgrounds)
 	do
 		feh --bg-scale $image
 		sleep 120
