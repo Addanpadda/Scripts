@@ -2,6 +2,7 @@
 # Start steam if it is not already running
 if [ ! $(ps -ef | grep steam | wc -l) -gt 1 ]; then
 	steam > /dev/null 2>&1 &
+	sleep 15
 fi
 
 # Run ESO with proton
